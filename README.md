@@ -58,7 +58,7 @@ PS>  while ($LASTEXITCODE -gt 0) { .\updateHostsWindows.ps1 }
 2. Use an unlocker program ([IoBit Unlocker](https://www.iobit.com/en/iobit-unlocker.php) for example) to unlock the file from use.
 On the hosts file: Right Click>Show more options>IoBit Unlocker.
 
-![Unlock](.\docs\media\misc\unlock.png)
+![Unlock](./docs/mediamisc/unlock.png)
 
 #### Executing The Script
 
