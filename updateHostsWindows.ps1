@@ -16,6 +16,24 @@
   .PARAMETER Restore
   Restore the hosts file with the current skeleton backup if one exists and
   exits.
+  .EXAMPLE
+  PS> .\updateHostsWindows.ps1
+  .EXAMPLE
+  PS> .\updateHostsWindows.ps1 -OutFile '.\hosts'
+  --------------------------------------------------------------------------------
+  This Powershell script updates the Windows hosts file from one of the various                                           consolidated hosts files found at at: https://github.com/StevenBlack/hosts                                              --------------------------------------------------------------------------------                                        If updating the hosts file fails due to the hosts file being in use then it's                                           best to just keep trying. It's not always in use though it is hard to figure
+  out when it's free so it's recommended to use while loop on $LASTEXITCODE to
+  keep trying. E.G.: while ($LASTEXITCODE -gt 0) { .\updateHostsWindows.ps1 }.
+  --------------------------------------------------------------------------------
+  Use: Get-Help .\updateHostsWindows.ps1 -Detailed (or -Full) for more
+  information.
+  --------------------------------------------------------------------------------
+
+  Checking if we are in a shell with administrative privileges.
+  Attempting to get data from
+  https://raw.githubusercontent.com/StevenBlack/hosts/refs/heads/master/hosts.
+  Attempting to create output file .\hosts.
+  Successfully created file: .\hosts.
 #>
 <#
 ╔════════════════════════════════════════════════════════════════════════╗
