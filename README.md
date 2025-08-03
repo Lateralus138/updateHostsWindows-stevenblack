@@ -306,7 +306,7 @@ More information and instructions for using this tool can be found at the link a
 
 This project is written in `Powershell`.
 
-[![Powershell](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/updateHostsWindows-stevenblack/master/docs/json/cpp.json&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8%2F9hAAAA2UlEQVQ4jWNULTj4n4FM8PvTcwYWsjV%2FfMbw5%2FMrBiZKNIMAhgG3%2Bu3wa%2F7wBK4ZqwH4DPn1%2FjHDny9vUMQwDFArPITVEJDmv1%2FfYhiK1QXohvx%2B9xCrZpwGoBvy59t7XMrIiwWiDIA5X9Qhj%2BH3p5ekGYCsGQT%2B%2FvzM8PvTC6wGYKREdM2vD0xCkZcNReWjuODTtR0omrGBXx%2BfowjDMxNI89%2BfX3BqRLGVjZuBjV8S4YKPV7cRrRkE%2Fv36yvDrw1Mwm5mFR6zh3%2B%2FvRGuGgf%2F%2F%2FjD8%2B%2F2dAQDsDmw%2FOOH7RwAAAABJRU5ErkJggg%3D%3D)](https://learn.microsoft.com/en-us/powershell/)
+[![Powershell](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/updateHostsWindows-stevenblack/master/docs/json/powershell.json&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8%2F9hAAAA2UlEQVQ4jWNULTj4n4FM8PvTcwYWsjV%2FfMbw5%2FMrBiZKNIMAhgG3%2Bu3wa%2F7wBK4ZqwH4DPn1%2FjHDny9vUMQwDFArPITVEJDmv1%2FfYhiK1QXohvx%2B9xCrZpwGoBvy59t7XMrIiwWiDIA5X9Qhj%2BH3p5ekGYCsGQT%2B%2FvzM8PvTC6wGYKREdM2vD0xCkZcNReWjuODTtR0omrGBXx%2BfowjDMxNI89%2BfX3BqRLGVjZuBjV8S4YKPV7cRrRkE%2Fv36yvDrw1Mwm5mFR6zh3%2B%2FvRGuGgf%2F%2F%2FjD8%2B%2F2dAQDsDmw%2FOOH7RwAAAABJRU5ErkJggg%3D%3D)](https://learn.microsoft.com/en-us/powershell/)
 
 ### Source File Quality
 
