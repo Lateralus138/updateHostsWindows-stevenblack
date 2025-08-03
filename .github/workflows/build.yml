@@ -1,0 +1,60 @@
+name: Release updateHostsWindows
+on:
+  push:
+    paths:
+      'updateHostsWindows.ps1'
+env:
+  VS_PROGRAM: 1
+  VS_FILE: 0
+  VS_EPOCH:
+  VS_FULL:
+  RELEASE_TITLE: "Update Hosts Windows for Steven Black Hosts Files"
+  RELEASE_FILE: "./docs/md/release.md"
+  BIN_DEFAULT: "updateHostsWindows.ps1"
+  PRERELEASE: False
+  GH_TOKEN: ${{ github.token }}
+jobs:
+  build_windows:
+    name: Get updateHostsWindows Information
+    runs-on: windows-latest
+    steps:
+    - name: Checkout Windows
+      uses: actions/checkout@v3
+    - name: Get updateHostsWindows Information
+      id: get_updatehostswindows_info
+      run: |
+        $epoch = [decimal] [datetimeoffset]::UtcNow.ToUnixTimeMilliseconds()
+        echo "VS_FULL=${{ env.VS_PROGRAM }}.${{ env.VS_FILE }}.$epoch" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
+        $updateHostsWindows_md5_text = @'
+        {
+          "schemaVersion": 1,
+          "color": "2E9778",
+          "label": "updateHostsWindows.ps1 MD5",
+          "message": "PLACEHOLDER",
+          "labelColor": "1d1d1d",
+          "style": "for-the-badge",
+          "namedLogo": "windows"
+        }
+        '@
+        New-Item -ItemType Directory -Force -Path '.\docs\json'
+        Write-Output "$updateHostsWindows_md5_text" > .\docs\json\updateHostsWindows_md5.json
+        $file = ".\docs\json\updateHostsWindows_md5.json"
+        $md5 = New-Object -TypeName System.Security.Cryptography.MD5CryptoServiceProvider
+        $(Get-FileHash -Path "updateHostsWindows.ps1" -Algorithm MD5).Hash
+        $hash = $(Get-FileHash -Path "updateHostsWindows.ps1" -Algorithm MD5).Hash
+        ((Get-Content -path $file -Raw) -replace 'PLACEHOLDER',$hash) | Set-Content -Path "$file"
+        git add .\docs\json\*
+        git config --global user.name 'Lateralus138'
+        git config --global user.email 'Lateralus138@users.noreply.github.com'
+        git commit --allow-empty -am "Pushed .\docs\json\* to master. - $(Get-Date ([datetime]::UtcNow)) UTC"
+        git push --force origin master
+    - name: Release Update Hosts Windows
+      uses: ncipollo/release-action@v1
+      with:
+        allowUpdates: True
+        tag: ${{ env.VS_FULL }}
+        name: ${{ env.RELEASE_TITLE }} - v${{ env.VS_FULL }}
+        bodyFile: ${{ env.RELEASE_FILE }}
+        prerelease: ${{ env.PRERELEASE }}
+        artifacts: ${{ env.BIN_DEFAULT }}
+        token: ${{ secrets.GITHUB_TOKEN }}
